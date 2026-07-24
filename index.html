@@ -39,7 +39,7 @@ function submitForm(e,formId){e.preventDefault();let form=e.target,btn=form.quer
 // Send to Google Sheets
 let payload={name:data.get(`name`)||``,email:data.get(`email`)||``,phone:data.get(`phone`)||``,interest:data.get(`interest`)||``,project:`Eldeco 7 Peaks`,source:document.referrer||`Direct`,utm_source:getParam(`utm_source`),utm_medium:getParam(`utm_medium`),utm_campaign:getParam(`utm_campaign`),timestamp:(/* @__PURE__ */ new Date()).toISOString()};
 // Show success
-fetch(`https://script.google.com/macros/s/AKfycbyfyne6LPlbHTGfmswaZWmX4OoQkNjaqgTQjyXt-oo0qolP82D9kIRGECfQBqit3VeX/exec`,{method:`POST`,mode:`no-cors`,body:JSON.stringify(payload)}),setTimeout(()=>{
+fetch(`https://script.google.com/macros/s/AKfycbyfyne6LPlbHTGfmswaZWmX4OoQkNjaqgTQjyXt-oo0qolP82D9kIRGECfQBqit3VeX/exec`,{method:`POST`,mode:`cors`,headers:{'Content-Type':'text/plain'},body:JSON.stringify(payload)}),setTimeout(()=>{
 // Redirect after 2s
 form.style.display=`none`,document.getElementById(successId).style.display=`block`,setTimeout(()=>{window.location.href=`/thankyou.html`},2e3)},800)}function getParam(name){return new URLSearchParams(window.location.search).get(name)||``}
 // ── MODAL ──

@@ -33,13 +33,13 @@
   ]
 }
 </script><script>// ── GOOGLE SHEETS APPS SCRIPT URL ──
-const APPS_SCRIPT_URL=`https://script.google.com/macros/s/AKfycbyfyne6LPlbHTGfmswaZWmX4OoQkNjaqgTQjyXt-oo0qolP82D9kIRGECfQBqit3VeX/exec`;
+const APPS_SCRIPT_URL=`https://script.google.com/macros/s/AKfycbx7v09Mtgr_cm19BeWgFqKIL-Hj4uSOR2ZTq74vCa0Hyi6usK-PgZVqKvwlp44e_7kp/exec`;
 // ── FORM SUBMIT ──
 function submitForm(e,formId){e.preventDefault();let form=e.target,btn=form.querySelector(`button[type="submit"]`),data=new FormData(form),successId=formId.replace(`Form`,`Success`);btn.textContent=`Submitting...`,btn.disabled=!0,window.dataLayer=window.dataLayer||[],window.dataLayer.push({event:`form_submission`,form_name:formId,project:`eldeco-7peaks`,lead_type:data.get(`interest`)||`general`});
 // Send to Google Sheets
 let payload={name:data.get(`name`)||``,email:data.get(`email`)||``,phone:data.get(`phone`)||``,interest:data.get(`interest`)||``,project:`Eldeco 7 Peaks`,source:document.referrer||`Direct`,utm_source:getParam(`utm_source`),utm_medium:getParam(`utm_medium`),utm_campaign:getParam(`utm_campaign`),timestamp:(/* @__PURE__ */ new Date()).toISOString()};
 // Show success
-fetch(`https://script.google.com/macros/s/AKfycbyfyne6LPlbHTGfmswaZWmX4OoQkNjaqgTQjyXt-oo0qolP82D9kIRGECfQBqit3VeX/exec`,{method:`POST`,mode:`cors`,headers:{'Content-Type':'text/plain'},body:JSON.stringify(payload)}),setTimeout(()=>{
+fetch(`https://script.google.com/macros/s/AKfycbx7v09Mtgr_cm19BeWgFqKIL-Hj4uSOR2ZTq74vCa0Hyi6usK-PgZVqKvwlp44e_7kp/exec`,{method:`POST`,mode:`cors`,headers:{'Content-Type':'text/plain'},body:JSON.stringify(payload)}),setTimeout(()=>{
 // Redirect after 2s
 form.style.display=`none`,document.getElementById(successId).style.display=`block`,setTimeout(()=>{window.location.href=`/thankyou.html`},2e3)},800)}function getParam(name){return new URLSearchParams(window.location.search).get(name)||``}
 // ── MODAL ──

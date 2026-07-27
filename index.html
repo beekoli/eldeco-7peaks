@@ -41,7 +41,7 @@
 </script><script>// ── GOOGLE SHEETS APPS SCRIPT URL ── v2 leads-fix
 const APPS_SCRIPT_URL=`https://script.google.com/macros/s/AKfycbyXi5ekoqBnAWsN4V_uLkSt73um0p1n74o8_Gw7OMlKj3rnomtjJnVzRtL5fHb95O_1WQ/exec`;
 // ── FORM SUBMIT ──
-function submitForm(e,formId){e.preventDefault();let form=e.target,btn=form.querySelector(`button[type="submit"]`),data=new FormData(form),successId=formId.replace(`Form`,`Success`);btn.textContent=`Submitting...`,btn.disabled=!0,window.dataLayer=window.dataLayer||[],window.dataLayer.push({event:`form_submission`,form_name:formId,project:`eldeco-7peaks`,lead_type:data.get(`interest`)||`general`}),elFireConv(`form`);
+function submitForm(e,formId){e.preventDefault();let form=e.target,btn=form.querySelector(`button[type="submit"]`),data=new FormData(form);btn.textContent=`Submitting...`,btn.disabled=!0,window.dataLayer=window.dataLayer||[],window.dataLayer.push({event:`form_submission`,form_name:formId,project:`eldeco-7peaks`,lead_type:data.get(`interest`)||`general`}),elFireConv(`form`);
 // Send to Google Sheets
 let payload={name:data.get(`name`)||``,email:data.get(`email`)||``,phone:data.get(`phone`)||``,interest:data.get(`interest`)||``,project:`Eldeco 7 Peaks`,source:document.referrer||`Direct`,utm_source:getParam(`utm_source`),utm_medium:getParam(`utm_medium`),utm_campaign:getParam(`utm_campaign`),timestamp:(/* @__PURE__ */ new Date()).toISOString()};
 // Show success
